@@ -1,5 +1,6 @@
 <template>
-  <div class="view">
+  <div class="page">
+    <Header></Header>
     <div class="content">
       <button @click="add">+1</button>
       <p>{{this.$store.getters.getMinTwo}}</p>
@@ -7,10 +8,13 @@
       <h2 @click="showDialgo">Dialgo弹框测试</h2>
       <h2 @click="customAlert">自定义弹框组件测试</h2>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import CustomAlert from '../components/CustomAlert'
 export default {
   name: 'HelloWorld',
@@ -22,7 +26,7 @@ export default {
   },
   methods: {
     add: function () {
-      this.$store.commit('ADD')// 提交
+      this.$store.commit('ADD') // 提交
     },
     showAlert: function () {
       this.$modal.show('alert')
@@ -34,7 +38,9 @@ export default {
         buttons: [
           {
             title: 'Deal with it',
-            handler: () => { alert('Woot!') }
+            handler: () => {
+              alert('Woot!')
+            }
           },
           {
             title: '', // Button title
@@ -50,32 +56,31 @@ export default {
       })
     },
     customAlert: function () {
-      this.$modal.show(CustomAlert, {
-        text: 'This text is passed as a property'
-      }, {
-        draggable: false
-      })
+      this.$modal.show(
+        CustomAlert,
+        {
+          text: 'This text is passed as a property'
+        },
+        {
+          draggable: false
+        }
+      )
     }
   },
   created: function () {
-    console.log(this)
+    this.$store.commit('UPDATE_VIEW', {
+      name: 'mine',
+      desc: '描述......'
+    })
+  },
+  components: {
+    Header,
+    Footer
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.view {
-  width: 7.5;
-  height: 100%;
-  display: relative;
-}
-.content {
-  height: calc(100% - 40px - 40px);
-  position: absolute;
-  top: 40px;
-  background: #ffffff;
-  width: 7.5rem;
-}
 
 </style>

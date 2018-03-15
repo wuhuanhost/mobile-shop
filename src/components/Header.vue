@@ -40,6 +40,8 @@ export default {
   background: #eeeeee;
   display: flex;
   flex-direction: row;
+  position:absolute;
+  top:0;
 }
 .header div {
   flex: 1;

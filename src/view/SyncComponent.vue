@@ -43,7 +43,7 @@ export default {
   },
   created: function () {
     this.$store.commit('UPDATE_VIEW', {
-      name: 'home',
+      name: 'test',
       desc: '描述......'
     })
   }

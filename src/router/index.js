@@ -10,19 +10,23 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
-      meta: { keepAlive: true }
+      component: Home
     },
+    { path: '/', redirect: '/home' },
     {
       path: '/home',
       name: 'home',
-      component: Home,
-      meta: { keepAlive: true }
+      component: Home
     }, {
       path: '/mine',
       name: 'mine',
-      component: Mine,
-      meta: { keepAlive: true }
+      component: Mine
+    }, {
+      path: '/test',
+      name: 'test',
+      component: (resolve) => {
+        require(['../view/SyncComponent.vue'], resolve)
+      }
     }
   ]
 

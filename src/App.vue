@@ -3,17 +3,13 @@
     <modal name="alert">测试alert</modal>
     <v-dialog></v-dialog>
     <modals-container></modals-container>
-    <Header></Header>
     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeIn">
-      <router-view></router-view>
+        <router-view></router-view>
     </transition>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from './components/Footer'
 import Loading from './components/Loading'
 export default {
   name: 'app',
@@ -23,8 +19,6 @@ export default {
     }
   },
   components: {
-    Header,
-    Footer,
     Loading
   },
   created () {
@@ -51,10 +45,19 @@ body {
   height: 100%;
   margin: 0 auto;
   font-size: 0.22rem;
-  display: flex;
-  flex-direction: column;
 }
-
+.page {
+  width: 7.5rem;
+  height: 100%;
+  display: relative;
+}
+.content {
+  height: calc(100% - 40px - 40px);
+  position: absolute;
+  top: 40px;
+  background: #ffffff;
+  width: 7.5rem;
+}
 .v--modal {
   width: 6rem !important;
   height: auto !important;

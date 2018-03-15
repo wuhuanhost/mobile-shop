@@ -1,12 +1,11 @@
 /**
  * 页面状态管理
  */
-import { UPDATE_VIEW, POP_VIEW } from '../mutation-types'
+import { UPDATE_VIEW } from '../mutation-types'
 
 const state = {
   current: 'home', // 当前页面名称,
-  pageStack: ['home'],
-  navBar: [// 导航
+  navBar: [// 页面上方导航
     {
       name: 'home',
       leftIcon: '',
@@ -20,6 +19,14 @@ const state = {
       leftIcon: '',
       leftTitle: '返回',
       title: '我的',
+      rightIcon: '',
+      rightTitle: '',
+      type: ''
+    }, {
+      name: 'test',
+      leftIcon: '',
+      leftTitle: '返回',
+      title: '测试',
       rightIcon: '',
       rightTitle: '',
       type: ''
@@ -37,7 +44,6 @@ const state = {
       icon: '',
       hoverIcon: ''
     }
-
   ]
 }
 
@@ -56,13 +62,7 @@ const getters = {
 
 const mutations = {
   [UPDATE_VIEW] (state, data) {
-    state.pageStack.push(data)
-    state.current = data
-  },
-  [POP_VIEW] (state, data) {
-    state.pageStack.pop()
-    console.log(state.pageStack[state.pageStack.length - 1])
-    state.current = state.pageStack[state.pageStack.length - 1]
+    state.current = data.name
   }
 }
 
