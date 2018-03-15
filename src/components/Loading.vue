@@ -1,6 +1,6 @@
 <template>
       <div class="mask">
-          <div class="content">正在加载中......</div>
+          <div class="content">加载中......</div>
     </div>
 </template>
 <script>

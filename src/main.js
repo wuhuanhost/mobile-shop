@@ -6,6 +6,14 @@ import App from './App'
 import store from './store'
 import router from './router'
 import VModal from 'vue-js-modal'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import Mint from 'mint-ui'
+import './mock/test'
+import 'mint-ui/lib/style.css'
+
+Vue.use(Mint)
+Vue.use(VueAxios, axios)
 Vue.use(VModal, { dialog: true, dynamic: true })
 
 Vue.config.productionTip = false

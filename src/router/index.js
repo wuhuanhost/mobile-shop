@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/view/Home.vue'
 import Mine from '@/view/Mine.vue'
 import Test1 from '@/view/Test1.vue'
-
+import Store from '../store'
 Vue.use(Router)
 
 const router = new Router({
@@ -39,7 +39,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   console.log(to)
   console.log(from)
-  console.log(this.$store)
+  console.log(Store)
+  Store.commit('UPDATE_VIEW', { name: to.name, desc: '' })
   next()
 })
 

@@ -3,8 +3,10 @@
     <modal name="alert">测试alert</modal>
     <v-dialog></v-dialog>
     <modals-container></modals-container>
-    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeIn">
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+      <keep-alive>
         <router-view></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>
@@ -59,8 +61,8 @@ body {
   width: 7.5rem;
 }
 .v--modal {
-  width: 6rem !important;
-  height: auto !important;
-  margin: 0 auto;
+  /* width: 6rem !important;
+  height: auto !important; */
+  /* margin: 0 auto; */
 }
 </style>
