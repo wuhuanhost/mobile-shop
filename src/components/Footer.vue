@@ -20,6 +20,15 @@
       </router-link>
     </div>
     <div class="tabbar-item">
+      <router-link to="/test1">
+        <div class="tabbar-item-icon-block">
+          <div class="tabbar-item-icon tabbar-item-icon-mine"></div>
+          <!-- <sup class="tip"></sup> -->
+        </div>
+        <div class="tabbar-item-label tabbar-item-label-mine">测试1</div>
+      </router-link>
+    </div>
+    <div class="tabbar-item">
       <router-link to="/mine">
         <div class="tabbar-item-icon-block">
           <div class="tabbar-item-icon tabbar-item-icon-mine"></div>
@@ -72,8 +81,8 @@ export default {
       .tabbar-item-icon {
         background: pink !important;
       }
-      .tabbar-item-label{
-        color:orangered;
+      .tabbar-item-label {
+        color: orangered;
       }
     }
     //navbar 默认样式
@@ -83,7 +92,7 @@ export default {
       display: flex;
       flex-direction: column;
       text-decoration: none;
-      color:#aaaaaa;
+      color: #aaaaaa;
     }
     .tabbar-item-icon-block {
       height: 0.6rem;
@@ -118,7 +127,7 @@ export default {
     position: absolute;
     left: 0.4rem;
     top: 0.04rem;
-    color:#eeeeee;
+    color: #eeeeee;
   }
 
   .tip {

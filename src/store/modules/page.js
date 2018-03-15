@@ -30,6 +30,14 @@ const state = {
       rightIcon: '',
       rightTitle: '',
       type: ''
+    }, {
+      name: 'test1',
+      leftIcon: '',
+      leftTitle: '返回',
+      title: '测试1',
+      rightIcon: '',
+      rightTitle: '',
+      type: ''
     }
   ],
   tabBar: [// 选项卡切换页面
