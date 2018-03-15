@@ -10,6 +10,7 @@
 
 <script type="text/ecmascript-6">
 import Bscroll from 'better-scroll'
+import Services from '../services'
 export default {
   data () {
     return {
@@ -24,12 +25,15 @@ export default {
   created: function () {
     var inst = this.$toast('数据正在获取中......')
     setTimeout(() => {
-      this.axios.get('/test').then(response => {
-        this.data = response.data
+      Services.user.getUserInfoAndGoodsInfo().then(response => {
+        console.log(response)
+        this.data = response.user
         inst.close()
         this.$nextTick(() => {
           this.scroll = new Bscroll(this.$refs.wrapper, {})
         })
+      }).catch(() => {
+        this.$toast('数据获取出现异常！！！')
       })
     }, 3000)
   },

@@ -9,7 +9,7 @@ import VModal from 'vue-js-modal'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Mint from 'mint-ui'
-import './mock/test'
+import './mock' // 导入mock数据
 import 'mint-ui/lib/style.css'
 
 Vue.use(Mint)
