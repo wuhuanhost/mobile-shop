@@ -1,8 +1,17 @@
 <template>
   <div class="header">
-    <div @click="back()">{{currentNavbar.leftTitle}}</div>
-    <div>{{currentNavbar.title}}</div>
-    <div>{{currentNavbar.rightTitle}}</div>
+    <slot name="left" class="header-left">
+      <slot name="left-icon" class="header-item-icon"></slot>
+      <slot name="left-label" class="header-item-label"></slot>
+    </slot>
+    <div class="header-center" slot="title">
+      <slot name="title"></slot>
+    </div>
+    <div class="header-right">
+      <div class="header-item-label" slot="right-label">
+        <slot name="right-label"></slot>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -16,20 +25,12 @@ export default {
   },
   methods: {
     back () {
-      this.$store.commit('POP_VIEW')
       this.$router.go(-1)
-    }
-  },
-  computed: {
-    currentNavbar: function () {
-      console.log('.............')
-      return this.$store.getters.getCurrentNavbar[0]
-      // return this.$store.getters.currentNavbar('home')
     }
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .header {
   width: 7.5rem;
   height: 40px;
@@ -40,17 +41,55 @@ export default {
   background: #eeeeee;
   display: flex;
   flex-direction: row;
-  position:absolute;
-  top:0;
+  position: absolute;
+  top: 0;
+  font-size: 0.36rem;
+  div {
+    height: 40px;
+    line-height: 40px;
+  }
 }
-.header div {
+
+.header-left {
+  width: 1.5rem;
+  // background: red;
+  display: flex;
+  flex-direction: row;
+  // .header-item-icon {
+  //   flex: 1;
+  //   padding-left: 0.36rem;
+  // }
+  :first-child {
+    flex: 1;
+    padding-left: 0.36rem;
+  }
+  // .header-item-label {
+  //   width: 1.04rem;
+  //   // background: aquamarine;
+  //   padding-left: 0.1rem;
+  // }
+  :last-child {
+    width: 1.04rem;
+    // background: aquamarine;
+    padding-left: 0.1rem;
+  }
+}
+.header-center {
   flex: 1;
-  padding:0 10px;
+  font-weight: bold;
+  // background: pink;
 }
-.header div:first-child {
-  text-align: left;
-}
-.header div:last-child {
-  text-align: right;
+.header-right {
+  width: 1.5rem;
+  // background: blueviolet;
+  display: flex;
+  flex-direction: row;
+  // background: pink;
+  .header-item-label {
+    // background: red;
+    text-align: right;
+    flex: 1;
+    padding-right: 0.36rem;
+  }
 }
 </style>

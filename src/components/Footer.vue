@@ -48,11 +48,6 @@ export default {
       title: '首页',
       rightIcon: ''
     }
-  },
-  computed: {
-    current: function () {
-      return this.$store.getters.getCurrent
-    }
   }
 }
 </script>

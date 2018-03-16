@@ -1,6 +1,13 @@
 <template>
   <div class="page">
-    <Header></Header>
+    <Header>
+      <div slot="left" class="header-left" @click="this.back">
+        <div slot='left-icon'>&lt;</div>
+        <div slot='left-label'>返回</div>
+      </div>
+      <div slot='title'>首页</div>
+      <div slot='right-label'>确定</div>
+    </Header>
     <div class="content">
       <div class="list-view">
         <p v-for="(item,key) in list" :key="item.id">
@@ -18,7 +25,10 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import InfiniteLoading from 'vue-infinite-loading'
+import mixins from '../utils/mixins'
 export default {
+  name: 'homne',
+  mixins: [mixins],
   data () {
     return {
       list: []
@@ -34,6 +44,9 @@ export default {
         this.list = this.list.concat(temp)
         $state.loaded()
       }, 1000)
+    },
+    back: function () {
+      this.$router.go(-1)
     }
   },
   components: {

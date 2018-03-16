@@ -1,20 +1,30 @@
 <template>
-    <div class="page">
-        <Header></Header>
-        <div class="content">
-            <div class="list-view">
-                <TestAsyncComp></TestAsyncComp>
-            </div>
-        </div>
-        <Footer></Footer>
+  <div class="page">
+    <Header>
+      <div slot="left" class="header-left" @click="this.back">
+        <div slot='left-icon'>&lt;</div>
+        <div slot='left-label'>返回</div>
+      </div>
+      <div slot='title'>弹框测试</div>
+      <div slot='right-label'>确定</div>
+    </Header>
+    <div class="content">
+      <div class="list-view">
+        <TestAsyncComp></TestAsyncComp>
+      </div>
     </div>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import LoadingComp from '../components/Loading'
+import mixins from '../utils/mixins'
 export default {
+  name: 'test1',
+  mixins: [mixins],
   data () {
     return {
       list: []
@@ -34,12 +44,6 @@ export default {
       delay: 0,
       // 最长等待时间。超出此时间则渲染错误组件。默认：Infinity
       timeout: 3000
-    })
-  },
-  created: function () {
-    this.$store.commit('UPDATE_VIEW', {
-      name: 'test1',
-      desc: '描述......'
     })
   }
 }

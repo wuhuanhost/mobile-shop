@@ -1,6 +1,13 @@
 <template>
   <div class="page">
-    <Header></Header>
+    <Header>
+      <div slot="left" class="header-left" @click="this.back">
+        <div slot='left-icon'>&lt;</div>
+        <div slot='left-label'>返回</div>
+      </div>
+      <div slot='title'>我的</div>
+      <div slot='right-label'>确定</div>
+    </Header>
     <div class="content">
       <button @click="add">+1</button>
       <p>{{this.$store.getters.getMinTwo}}</p>
@@ -16,8 +23,10 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CustomAlert from '../components/CustomAlert'
+import mixins from '../utils/mixins'
 export default {
-  name: 'HelloWorld',
+  name: 'mine',
+  mixins: [mixins],
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
