@@ -29,10 +29,14 @@ export default {
 }
 </script>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+<style lang="scss">
+/**------------------全局变量的定义------------------------------**/
+
+/**----------------------全局mixin定义---------------------------**/
+
+/**---------------------全局function定义-------------------------**/
+
+@import './style/index.scss';
 
 html,
 body {
@@ -44,22 +48,26 @@ body {
 }
 
 #app {
-  width: 7.5rem;
+  width: $app-width;
   height: 100%;
   margin: 0 auto;
-  font-size: 0.22rem;
+  font-size: 16px;
+  // @include font-dpr;
 }
+
 .page {
-  width: 7.5rem;
+  width: $app-width;
   height: 100%;
   display: relative;
 }
+
 .content {
-  height: calc(100% - 40px - 40px);
+  height: calc(100% - 1.36rem);
   position: absolute;
   top: 40px;
   background: #ffffff;
   width: 7.5rem;
+  // overflow: auto;
 }
 .v--modal {
   /* width: 6rem !important;

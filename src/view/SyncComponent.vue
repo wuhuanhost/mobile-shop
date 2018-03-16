@@ -9,10 +9,13 @@
       <div slot='right-label'>确定</div>
     </Header>
     <div class="content">
-      <h2>日期格式化过滤器使用</h2>
-      <h3>{{date|dateformat('yyyy-mm-dd hh:MM:ss','123')}}</h3>
-      <div class="test-directive" v-color="color">测试自定义指令</div>
       <div class="list-view">
+        <div class="da dasdsa">
+          <div style="width:1rem;" class="test-ell">你好啊测试下超出长度如何处理......</div>
+        </div>
+        <h2>日期格式化过滤器使用</h2>
+        <h3>{{date|dateformat('yyyy-mm-dd hh:MM:ss','123')}}</h3>
+        <div class="test-directive" v-color="color">测试自定义指令</div>
         <p v-for="(item,key) in list" :key="item.id">
           Line:{{key}}
           <span v-text="item"></span>
@@ -66,7 +69,13 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
+@import "../style/index.scss";
+
+.test-ell {
+  @include morell(2);
+}
+
 .list-view {
   overflow: auto;
   height: 100%;
@@ -75,6 +84,12 @@ export default {
   width: 2rem;
   height: 2rem;
   background: red;
-  position: absolute;
+}
+
+.da {
+  width: 100%;
+  height: 1rem;
+  background: #ffffff;
+  @include onepx("bottom",red);
 }
 </style>

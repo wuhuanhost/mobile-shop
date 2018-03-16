@@ -7,8 +7,8 @@ const state = {
 
 // 获取状态，过滤需要的值，第一个参数为（state）
 const getters = {
-  getMinTwo (state) {
-    return state.num > 2 ? state.num : ''
+  getMinTwo1 (state) {
+    return state.num > 2 ? state.num : ' '
   }
 }
 

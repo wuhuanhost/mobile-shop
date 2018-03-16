@@ -5,4 +5,5 @@
   var zoom = width1 / width2
   document.querySelector('html').style.fontSize = zoom * 100 + 'px'
   document.querySelector('html').style.height = '100%'
+  document.querySelector('html').setAttribute('data-dpr', window.devicePixelRatio)
 })()
