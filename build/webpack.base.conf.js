@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const multipageHelper = require('./multipage-helper')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -21,9 +22,7 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry:  multipageHelper.getEntries(),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -35,6 +34,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+	   'jquery':'jquery',
       '@': resolve('src'),
     }
   },
@@ -90,3 +90,4 @@ module.exports = {
     child_process: 'empty'
   }
 }
+

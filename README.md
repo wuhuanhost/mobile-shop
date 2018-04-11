@@ -1,6 +1,6 @@
-# my-project
+# y
 
-> A Vue.js project
+> 信用卡分期上�上商城前端界面
 
 ## Build Setup
 
@@ -19,9 +19,6 @@ npm run build --report
 
 # run unit tests
 npm run unit
-
-# run e2e tests
-npm run e2e
 
 # run all tests
 npm test
