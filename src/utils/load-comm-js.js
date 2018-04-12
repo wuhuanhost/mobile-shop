@@ -1,4 +1,4 @@
-import './px2rem'
+import './utils'
 import Vue from 'vue'
 import $ from 'jquery'
 import 'vue-layer-mobile/need/layer.css'
