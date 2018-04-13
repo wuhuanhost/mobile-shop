@@ -67,7 +67,8 @@ export default {
 <style lang="scss">
 .swiper-container {
   width: 100%;
-  height: 3rem;
+  height: 7.5rem;
+  margin-top:0.9rem;
   .swiper-wrapper {
     width: 100%;
     height: 100%;
@@ -101,6 +102,7 @@ export default {
   border-radius: 0.4rem;
   padding: 0 0.1rem;
   margin-left: calc(calc(100% - 1.6rem) / 2);
+margin-bottom:0.24rem;
   .swiper-pagination-bullet {
     width: 0.14rem;
     height: 0.14rem;
